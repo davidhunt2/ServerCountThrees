@@ -17,15 +17,15 @@ TARGET_DIR = build
 run : $(SOURCE_DIR)/$(PROGRAM_NAME).o $(SOURCE_DIR)/$(READ_NAME).o
 	mkdir $(TARGET_DIR); \
 	gcc -g -o $(TARGET_DIR)/$(PROGRAM_NAME) $(SOURCE_DIR)/$(PROGRAM_NAME).o $(SOURCE_DIR)/$(READ_NAME).o; \
-	cp $(DATA_DIR)/$(DATA_NAME) $(TARGET_DIR)/.; \
-	cd $(TARGET_DIR); \
-	./$(PROGRAM_NAME)
+	cp $(DATA_DIR)/$(DATA_NAME) $(TARGET_DIR)/.
+#	cd $(TARGET_DIR); \
+#	./$(PROGRAM_NAME)
 
 # Compiles program source file into program object file
 $(SOURCE_DIR)/$(PROGRAM_NAME).o : $(SOURCE_DIR)/$(PROGRAM_NAME).c
 	gcc -g -c $(SOURCE_DIR)/$(PROGRAM_NAME).c -o $(SOURCE_DIR)/$(PROGRAM_NAME).o
 
-# Compiles read source files into rea object file
+# Compiles read source files into read object file
 $(SOURCE_DIR)/$(READ_NAME).o : $(SOURCE_DIR)/$(READ_NAME).c $(SOURCE_DIR)/$(READ_NAME).h
 	gcc -g -c $(SOURCE_DIR)/$(READ_NAME).c -o $(SOURCE_DIR)/$(READ_NAME).o
 
